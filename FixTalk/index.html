@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="Talking head, Audio-driven, Facial disentanglement, EDTalk">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDTalk</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> EDTalk: Efficient Disentanglement for Emotional Talking Head Synthesis</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://tanshuai0219.github.io/">Shuai Tan</a>,</span>
+            <span class="author-block">
+              <strong>Bill Gong</strong>,</span>
+            <span class="author-block">
+              <strong>Bin Ji</strong>,
+            </span>
+            <span class="author-block">
+              <strong>Ye Pan</strong>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Shanghai Jianghong University,</span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">ICCV 2025</a></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2507.01390"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#teaser"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/tanshuai0219/EDTalk"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        (If the video is slightly <strong>lagging</strong> behind the audio, please try using a <strong>different</strong> device.) 
+              </h2>
+      <video id="teaser" autoplay loop controls playsinline height="100%">
+        <!-- <source src="./static/videos/demo_arxiv.mp4" -->
+        
+        <source src="https://cloud.video.taobao.com/vod/6qN-B1TNofNKs0TkNaGgZlw3NdlxHEPdFNu34x6Mxk4.mp4"
+                type="video/mp4">
+      </video>
+
+
+      <h2 class="subtitle has-text-centered">
+        Given an identity source, <strong>FixTalk</strong> supports decoupled control over lip sync, head pose, and emotional expressions from their respective sources. FixTalk achieves real-time generation. In particular, FixTalk demonstrates superior performance with high-quality rendering in extreme poses and expressive expressions.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Talking head generation is gaining significant importance across various domains, with a growing demand for high-quality rendering. However, existing methods often suffer from identity leakage (IL) and rendering artifacts (RA), particularly in extreme cases. Through an in-depth analysis of previous approaches, we identify two key insights: (1) IL arises from identity information embedded within motion features, and (2) this identity information can be leveraged to address RA. Building on these findings, this paper introduces FixTalk, a novel framework designed to simultaneously resolve both issues for high-quality talking head generation. Firstly, we propose an Enhanced Motion Indicator (EMI) to effectively decouple identity information from motion features, mitigating the impact of IL on generated talking heads. To address RA, we introduce an Enhanced Detail Indicator (EDI), which utilizes the leaked identity information to supplement missing details, thus fixing the artifacts. Extensive experiments demonstrate that FixTalk effectively mitigates IL and RA, achieving superior performance compared to state-of-the-art methods.
+            <br>
+            <br>
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    
+    <!-- Proposed Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Proposed Method</h2>
+        <div class="content has-text-justified">
+          <img src="./static/videos/FixTalk.png" alt="synctalk">
+          <p>
+            <br>
+            Illustration of our proposed FixTalk. (a) FixTalk is built upon Baseline (covered by a gray mask). (b) Unlike Baseline, which directly uses \(f^d_6\) to extract motion features, FixTalk fully leverages the multi-scale features of encoder \(E\), where we introduce the EMI to gain a more comprehensive understanding of motion. In EMI, a lightweight extractor \(P\) autonomously learns motion-specific features from \(f^d_4\). Then, the multi-scale features are passed through an Average Pooling layer and a Weighted Sum layer to generate the final motion feature \(z^d\). (c)&(d)&(e) In contrast to Baseline which feeds \(f^s_{1:5}\) into \(G\), FixTalk enhances features using EDI for better detail rendering. During training, EDI employs a memory network to record the driven features. During inference, the most appropriate feature is retrieved from the memory network to supplement the details.
+          </p>
+          
+          
+
+          <!-- <p>
+
+          </p>
+          <p>
+            
+          </p> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Proposed Method. -->  
+
+
+</section>
+
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+  @article{peng2023synctalk,
+    title={SyncTalk: The Devil is in the Synchronization for Talking Head Synthesis}, 
+    author={Ziqiao Peng and Wentao Hu and Yue Shi and Xiangyu Zhu and Xiaomei Zhang and Jun He and Hongyan Liu and Zhaoxin Fan},
+    journal={arXiv preprint arXiv:2311.17590},
+    year={2023}
+  }
+</code></pre>
+  </div>
+</section> -->
+ 
+
+
+
+<footer class="footer">
+  <div class="container">
+      <div class="content has-text-centered">
+          <a class="icon-link" href="https://arxiv.org/abs/2507.01390">
+              <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="" class="external-link" disabled>
+              <i class="fab fa-github"></i>
+          </a>
+      </div>
+      <div class="columns is-centered">
+          <div class="column is-8">
+              <div class="content">
+                  <p style="text-align:center">
+                    This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                  </p>
+                  <p style="text-align:center">
+                    Website source code based on the <a
+                    href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+                  </p>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>
